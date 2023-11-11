@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" name="viewport" content="widthdevice-width, initial-scale=0.4, maximum-scale=1, user-scalable=yes">
+ 
+    <style>body {background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fsafe-img.xhscdn.com%2Fbw1%2F3d901398-5fff-4b1b-9b39-e8d37d9ac62c%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fsafe-img.xhscdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1701491601&t=bdbe06da4f1edff37fd879a0fbc60ead");}</style>
+    <audio src="http://52bsj.vip:81/api/v3/file/get/172981/%E7%BE%A1%E6%85%95%E9%A3%8E%E7%BE%A1%E6%85%95%E9%9B%A8-%E6%80%AA%E9%98%BF%E5%A7%A8-295139495.mp3?sign=F_0zhGksfwaolvx0vys531EgTVxdcdzk98N-E4zzhpA%3D%3A0" autoplay></audio>
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="geo_loc"></h1>
+    <script>
+        function getElement(id) {
+            return typeof id === 'string' ? document.getElementById(id) : id;
+        }
+ 
+        function show_it(lat, lon) {
+            var str = '31.12568，109.36269，' + lat + '，' + lon;
+            getElement('geo_loc').innerHTML = str;
+        }
+ 
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                show_it(position.coords.latitude, position.coords.longitude);
+            },
+            function(err) {
+                getElement('geo_loc').innerHTML = err.code + "|" + err.message;
+            });
+        } else {
+            getElement('geo_loc').innerHTML = ".";
+        }
+    </script>
+</body>
+</html>
